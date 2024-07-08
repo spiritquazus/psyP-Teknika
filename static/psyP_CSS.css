@@ -1,0 +1,1980 @@
+
+/* TODOLIST ==================
+/* a lot... but first adjust all the elements as is, 
+/* use bootstrap! reverse engineer the fucker
+/* scrollbar customization. see down down below this css.
+/*add the skills ui, the lvl up ui
+
+
+example from Bootstrap:
+@media (min-width:768px){
+    .col-md{flex:1 0 0%}
+    .row-cols-md-auto>*{flex:0 0 auto;width:auto}
+    .row-cols-md-1>*{flex:0 0 auto;width:100%}
+    .row-cols-md-2>*{flex:0 0 auto;width:50%}
+    .row-cols-md-3>*{flex:0 0 auto;width:33.33333333%}
+    .row-cols-md-4>*{flex:0 0 auto;width:25%}
+    .row-cols-md-5>*{flex:0 0 auto;width:20%}
+    .row-cols-md-6>*{flex:0 0 auto;width:16.66666667%}
+
+    .col-md-auto{flex:0 0 auto;width:auto}
+    .col-md-1{flex:0 0 auto;width:8.33333333%}
+    .col-md-2{flex:0 0 auto;width:16.66666667%}
+    .col-md-3{flex:0 0 auto;width:25%}
+    .col-md-4{flex:0 0 auto;width:33.33333333%}
+    .col-md-5{flex:0 0 auto;width:41.66666667%}
+    .col-md-6{flex:0 0 auto;width:50%}
+    .col-md-7{flex:0 0 auto;width:58.33333333%}
+    .col-md-8{flex:0 0 auto;width:66.66666667%}
+    .col-md-9{flex:0 0 auto;width:75%}
+    .col-md-10{flex:0 0 auto;width:83.33333333%}
+    .col-md-11{flex:0 0 auto;width:91.66666667%}
+    .col-md-12{flex:0 0 auto;width:100%}
+
+    Breakpoint	for media queries
+Extra small	<576px
+Small		≥576px phones
+Medium		≥768px
+Large		≥992px Ipad in portrait mode
+Extra large	≥1200px small computer
+XXL         ≥1400px Normal.
+
+@media (min-width: 800)
+
+*/
+:root{
+    --topJoy: 35%;
+    --leftJoy: 35%;
+    --radionColorM: rgb(0, 255, 64);
+    --screenEffect: url("gallery/FX/screenDmg1.png")
+}
+
+body{
+    width: 100% !important;
+    height: 100% !important;
+    overflow: hidden;
+    margin: 0;
+    justify-content: center;
+}
+
+
+/*==Categories==*/
+
+.gridWrapper{
+    width: 100%;
+    height: 100%;
+    display: absolute;
+    top: 0;
+    display: grid;
+    grid-template-rows: repeat(100,1%);
+    grid-template-columns: repeat(100,1%);
+}
+
+.grid60-40{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 6fr 4fr;
+    grid-gap: 1rem;
+    grid-auto-rows: minmax(600px, 50%);
+}
+
+.grid50-50{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-gap: 1rem;
+}
+
+#bottomBarCont{
+    display: grid;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    height: 10%;
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(21, 5%);
+    justify-content: center;
+    grid-auto-rows: minmax(100px, 100px);
+    grid-auto-columns: fit-content(5%);
+}
+
+.gridNest3{
+    padding: 1rem;
+    grid-template-columns: repeat (3, 1fr);
+    grid-auto-rows: minmax(3rem, auto);
+}
+
+
+.flexToggle{
+    display: flex !important;
+}
+
+.flexCenter{
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.flexEnds{
+    display: flex !important;
+    justify-content:space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+}
+
+.floatPoint{
+    position: fixed;
+    display: flex;
+    z-index: 10;
+    background-color: rgba(42, 48, 48, 0.82);  
+    border: 1px;
+    border-color: grey;
+    border-style: solid;
+    border-radius: 1%
+}
+
+.borderRadion1{
+    border: 1px solid rgb(0, 255, 64)
+}
+
+.borderRadion3{
+    border: 3px solid rgb(0, 255, 64)
+}
+
+.borderRadion5{
+    border: 5px solid rgb(0, 255, 64)
+}
+
+.h50{
+    height: 50% !important;
+}
+
+.pdaNavBtn{
+    width: 10rem;
+    height: 100%;
+    margin: 0 0.5rem;
+    text-align: center;
+    line-height: 300%;
+    background: black;
+
+}
+
+.pdaNavBtnSq{
+    width: 2rem;
+    height: 2rem;
+    margin: 0.1rem 0.1rem;
+    text-align: center;
+    line-height: 300%;
+    background: black;
+
+}
+
+.pdaNavBtn:hover{
+    background-color: rgb(0, 255, 64);
+    color: black;
+    transform: scale(110%);
+}
+
+.pdaNavBtnSelect{
+    background-color: rgb(0, 255, 64);
+    color: black;
+    animation: radionBtnSelect 4s linear infinite;
+}
+
+@keyframes radionBtnSelect {
+    0%, 100% {
+        background-color: black;
+        color: rgb(0, 255, 64);
+    }
+    15% {
+        background-color: black;
+        color: rgb(0, 255, 64);
+    }
+    40%, 70% {
+        background-color: rgb(0, 255, 64);;
+        color: black;
+    }
+    95% {
+        background-color: black;
+        color: rgb(0, 255, 64);
+    }
+}
+
+@keyframes uiBulletSlideIn {
+    0%{
+        left: 5%;
+        opacity: 0;
+    }
+    100%{
+        left: 35%;
+        opacity: 1;
+    }
+}
+
+@keyframes uiBulletSlideOut{
+    0%{
+        left: 35%;
+        opacity: 1;
+    }
+    100%{
+        left: 150%;
+        opacity: 0;
+    }
+}
+
+.transitTopBotFadeT1{
+    animation: uiBulletSlideIn 0.3s ease-in 0.1s forwards;
+}
+.transitTopBotFadeT2{
+    animation: uiBulletSlideIn 0.3s ease-in 0.1s forwards;
+}
+.transitTopBotFadeT3{
+    animation: uiBulletSlideIn 0.3s ease-in 0.2s forwards;
+}
+.transitTopBotFadeT4{
+    animation: uiBulletSlideIn 0.3s ease-in 0.3s forwards;
+}
+.transitTopBotFadeT5{
+    animation: uiBulletSlideIn 0.3s ease-in 0.4s forwards;
+}
+.transitTopBotFadeT6{
+    animation: uiBulletSlideIn 0.3s ease-in 0.5s forwards;
+}
+.transitTopBotFadeT6{
+    animation: uiBulletSlideIn 0.3s ease-in 0.6s forwards;
+}
+.transitTopBotFadeT7{
+    animation: uiBulletSlideIn 0.3s ease-in 0.7s forwards;
+}
+.transitTopBotFadeT8{
+    animation: uiBulletSlideIn 0.3s ease-in 0.8s forwards;
+}
+.transitTopBotOut{
+    animation: uiBulletSlideOut 0.5s ease-in forwards !important;
+}
+
+
+/*=================FLOATING POINT WINDOWS==============*/
+
+#coinFlipWindow{
+    min-height: 20rem;
+    width: 30rem;
+    min-width: 30rem;
+    top: 14rem;
+    background-color: rgba(14, 14, 14, 0.89);  
+    flex-wrap: wrap;
+    opacity: 0; /*Initial opacity at 0*/
+    
+}
+
+#coinFlipTxt{
+    width: 100%;
+    text-align: center;
+    padding-top: 1.5rem;
+    font-size: 2rem;
+}
+
+#coinContain{
+    width: 100%;
+    display: flex;
+    flex-wrap: no-wrap;
+}
+
+#heads{
+    width: 50%;
+    border-right: 1px solid rgb(0, 255, 64); 
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#tails{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#settingsWindow{
+    top: 120vh;
+    max-width: 80vw;
+    min-height: 40rem;
+    width: 80rem;
+    min-width: 60rem;
+    display: flex;
+    opacity: 0; /*Initial opacity at 0*/
+    
+}
+
+.settingsCol{
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    width: 33%;
+    text-align: center;
+    margin-top: 2vh;
+    margin-bottom: 2vh; 
+}
+
+#settings2{
+    border-right: solid 2px;
+    border-left: solid 2px;
+    border-color: radial-gradient(circle, rgba(156, 156, 156, 0.751) 50%, rgba(255, 0, 0, 0) 100%);
+}
+
+.settingCat{
+    min-width: 30%;
+    max-height: 15rem;
+    border-bottom: solid 1px;
+    margin: 0.5rem 1.7rem;
+}
+
+#themeImgPreview{
+    background-image: url("gallery/theme/alterna1.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: relative;
+    bottom: 83%;
+    left: 20%;
+    width: 70%;
+    height: 90%;
+}
+
+#themeImgPrev:after{
+    content: " ";
+    width: 3.5vh;
+    height: 3.5vh;
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url("gallery/UI/UIArrowUp.png");
+}
+
+#themeImgSelect:after{
+    content: " ";
+    width: 4vh;
+    height: 4vh;
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url("gallery/UI/UIatom.png");
+}
+
+#themeImgNext:after{
+    content: " ";
+    width: 3.5vh;
+    height: 3.5vh;
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url("gallery/UI/UIArrowDown.png");
+}
+
+
+
+/*======================================PDA========================================*/
+#pda{
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0);
+    border: none;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease-in;
+}
+#pda:after{
+    content: " ";
+    position: absolute;
+    background-size: 100% 100%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    background-image: url("gallery/UI/pdaTransp2.png");
+    z-index: -1; 
+} 
+#pdaScreen{
+    height: 84%;
+    width: 88%;
+    background-color: rgba(0, 0, 0, 0.82);  
+    background-image: url(gallery/UI/pdaBGpsiskull.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    border:rgb(0, 255, 64) solid 2px;
+}
+
+#pdaScreen:after{
+    content:"";
+    position: absolute;
+    background-size: 70vh 70vh; 
+    background-position: center;
+    background-repeat: no-repeat;
+    top: 0;
+    left: 0;
+    background-image: url(gallery/UI/pdaBGcog.png);
+    animation: rotate360 7s linear infinite;
+    height: 10%;
+    width: 10%;
+}
+
+#pdaNavBar{
+    width: 100%;
+    height: 2.5rem;
+    border: 1px solid rgb(0, 255, 64);
+    margin: 0 auto 0.5rem;
+    display: flex;
+    flex-direction: row;
+}
+    /*=======STATUS======*/
+
+    #pdaStatusTab{
+    /*     top: 5rem;
+        max-width: 80vw;
+        min-height: 35rem;
+        width: 80rem;
+        min-width: 60rem;
+        display: none; */
+        width: 100%;
+        height: 100%;
+        display: none;
+        flex-wrap: nowrap;
+        flex-direction: row;
+    }
+    
+    #skeletonPNG{
+        background-image: url("gallery/UI/anaSkele.png");
+        height: 80%;
+        width: 12rem;
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin: 2rem 0.5rem 2rem 2rem;
+    }
+
+    #statusClone{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 80%;
+    }
+
+    #statusSubContainer{
+        width: 60%;
+        height: 85%;
+        margin: 1rem 3.4rem;
+        padding: 0;
+    }
+
+    #heartMonitorBattle{
+        background-image: url("gallery/FX/HBMgreen.gif");
+        background-position: center;
+        background: contain;
+        background-size: 15rem;
+        width: 80%;
+        height: 10rem;
+    }
+
+    #heartMonitor{
+        background-image: url("gallery/FX/HBMgreen.gif");
+        background-position: center;
+        background: contain;
+        background-size: 15rem;
+        width: 80%;
+        height: 10rem;
+    }
+
+    #PCprofile{
+        width: 100%;
+        height: 2.4rem;
+        padding:0;
+        margin: 0;
+    }
+
+    #profileCosmetic{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+    }
+
+    #profilePic{
+        margin: 2rem;
+        aspect-ratio: 3/2;
+        width: 250px;
+        height: 200px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    #profilePic img{
+        width: 2134px;
+        height: 1600px;
+        object-fit:cover;
+        object-position: -250px -250px;
+    }
+
+    #profilePic:after{
+        position: absolute;
+        content: " ";
+        width: inherit;
+        height: inherit;
+        background-image: url("gallery/UI/screenTop.png");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    #badgeFaction{
+        margin: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    /*=======MAP==========*/
+
+
+    #pdaMapTab{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        display: none;
+
+    }
+
+    #mapAndLog{
+        width: 70%;
+        height: 100%;
+        
+    }
+
+    #textLogDupli{
+        width: 100%;
+        height: 30%;
+        color:rgb(0, 255, 64);
+        overflow-y: scroll;
+        margin-top: 0.8rem;
+        background-image: url(gallery/UI/loghudRaw.png);
+        background-size: cover;
+        border-top: 1px solid rgb(0, 255, 64);
+    }
+
+    #mapImgGrid{
+        position: relative;
+        z-index:5;
+        width: 100%;
+        height: 60%;
+        overflow: scroll; 
+        scroll-behavior: smooth;
+    }
+
+    #mapSideBar{
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        margin:0;
+    }
+
+    #mapVis{
+        width: 70%;
+        height: 60%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    #PCpawn{
+        background-image: url("gallery/UI/PCpin.png");
+        width: 25px;
+        height:35px;
+        position: absolute;
+        background-size: cover;
+        background-position: center;
+        background-size: 25px 35px;
+        top: 3350px;
+        left: 400px;
+        z-index: 25
+    }
+    .mapTest{
+        width: 1047px;
+        height: 3676px;
+        margin: 0;
+        border: none;
+        background-image: url("gallery/UI/testMap.png");
+        position: absolute;
+    }
+    .measure25{
+        width: 25px;
+        height:25px;
+        margin: 0;
+        border: none;
+        background-image: url("gallery/UI/measure25.png");
+        position: absolute;
+    }
+    .mapBlock{
+        background-image: url("gallery/UI/inventory.png");
+        background-position: -200px -25px;
+        position: absolute;
+        width: 25px;
+        height:25px;
+    }
+    .mapBase{
+        background-image: url("gallery/UI/inventory.png");
+        background-position: -75px -25px;
+        /*background-position: -100px, -25px;*/
+        position: absolute;
+        width: 25px;
+        height:25px;
+    }
+    .mapQuest{
+        background-image: url("gallery/UI/inventory.png");
+        background-position: -50px, -25px;
+        position: absolute;
+        width: 25px;
+        height:25px;
+    }
+    .mapHunt{
+        background-image: url("gallery/UI/inventory.png");
+        background-position: -175px, -25px;
+        position: absolute;
+        width: 25px;
+        height:25px;
+    }
+    .mapAssassin{
+        background-image: url("gallery/UI/inventory.png");
+        background-position: -150px, -25px;
+        position: absolute;
+        width: 25px;
+        height:25px;
+    }
+    .mapMove{
+        background-image: url("gallery/UI/inventory.png");
+        background-position: -200px, -25px;
+        position: absolute;
+        width: 25px;
+        height:25px;
+    }
+    .mapDungeon{
+        background-image: url("gallery/UI/inventory.png");
+        background-position: -25px -25px;
+        position: absolute;
+        width: 25px;
+        height:25px;
+    }
+    .mapRadiation{
+        background-image: url("gallery/UI/inventory.png");
+        background-position: 0px -25px;
+        position: absolute;
+        width: 25px;
+        height:25px;
+    }
+    .mapAnomaly{
+        background-image: url("gallery/UI/inventory.png");
+        background-position: 0px, -25px;
+        position: absolute;
+        width: 25px;
+        height:25px;
+    }
+
+
+    #directionalBtn{
+        margin: 0.8rem;
+        width: 10rem;
+        height:10rem;
+        border: 4px solid rgb(0, 255, 64);
+        background-image: url(gallery/UI/joystickB.png);
+        background-position: center;
+
+        background-repeat: no-repeat;
+        position: relative;
+        border-radius: 0.4rem;
+        padding: 0.5rem;
+    }
+    #directionalBtn:after{
+        content: " ";
+        position: absolute;
+        background-repeat: no-repeat;
+        height: 30%;
+        width: 30%;
+        background-image: url(gallery/UI/joystick.png);
+        background-position: center;
+        z-index: 5; 
+        top: var(--topJoy);
+        right: var(--leftJoy);
+    }
+
+    .direcCenter{
+        height: 33.33%;
+        width: 100%;
+    }
+
+    .direcShare{
+        height: 33.33%;
+        width: 100%;
+    }
+
+    #mapSBarTop{
+        display: flex;
+        max-height: 30%;
+        margin-top: 0;
+    }
+
+    #mapDayNight{
+        margin: 0.8rem;
+        width: 10rem;
+        height:10rem;
+        border: 4px solid rgb(0, 255, 64);
+        border-radius: 0.4rem;
+        
+    }
+
+    #gameTime{
+        height: 15%;
+        border-top: solid 1px rgb(0, 255, 64); 
+    }
+
+    #exploreChoice{
+        border: 4px solid rgb(0, 255, 64);
+        max-height: 70%;
+        width: 90%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin-bottom: 0.3rem;
+
+    }
+
+    #exploreChoiceLOGO{
+        margin: 0.5rem;
+        margin-top: 1rem;
+        color:rgb(0, 255, 64);
+        display: flex;
+        align-items: center;
+
+    }
+
+    .exploreBtnBars{
+        border: 2px solid rgb(0, 255, 64);
+        height: 3rem;
+        width: 95%;
+        margin:0.7rem;
+    }
+
+
+/*=================UI ELEMENTS================*/
+
+
+
+
+HTML:hover{
+    cursor: url('gallery/UI/cursor.png'),auto;
+}
+
+button:hover{
+    cursor: url('gallery/UI/cursorYes.png'),auto !important;
+}
+
+button:active{
+    cursor: url('gallery/UI/cursorClick.png'),auto !important;
+}
+
+
+#bg {
+    background-image: url(gallery/theme/concrete.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+}
+
+p {
+    padding: 5px;
+}
+
+
+/*fonts*/
+#screenTitle{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 800;
+    font-style: normal;
+    font-size: 2.3rem;
+    display: none;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    justify-content: center; /* Horizontal centering */
+    background-color: rgba(32, 35, 35, 0.85); 
+}
+
+legend{
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 1.7rem;
+    font-weight: 650;
+    font-style: normal;
+    margin: 0 0 4px;
+}
+
+.orbitPls{
+    padding: 0;
+    font-family: "Orbitron", sans-serif;
+    color: rgb(0, 255, 64); 
+    font-optical-sizing: auto;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.orbitPlsSmol{
+    padding: 0;
+    font-family: "Orbitron", sans-serif;
+    color: rgb(0, 255, 64); 
+    font-optical-sizing: auto;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.orbitPlsClear{
+    font-size: 1.1rem;
+    padding: 0;
+    font-family: "Orbitron", sans-serif;
+    color: rgba(220, 255, 220, 0.9); 
+    font-optical-sizing: auto;
+    font-weight: 600;
+}
+
+.orbitPlsRed{
+    padding: 0;
+    font-family: "Orbitron", sans-serif;
+    color: rgba(228, 21, 21, 0.9); 
+    font-optical-sizing: auto;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/*General*/
+#sideBar{
+    background-color: rgba(5, 12, 12, 0.95);
+    border-right: 1px rgb(0, 255, 64) solid;
+    height: 100vh;
+    width: 3.7rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+}
+
+
+#screenBackground{
+    min-width: 25vw;
+    min-height: 20vh;
+    height: 75%;
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-image: url(gallery/kinoteatr/cordon.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+
+#screen{
+    border: 1px;
+    margin: 0 0 0 3.7rem;
+    border-color: grey;
+    border-style: solid;
+    grid-column: 1 / 10;
+    grid-row: 1 / 5;
+    height: 45rem;
+    width: 70rem;
+    background-image: url(https://cdna.artstation.com/p/assets/images/images/032/627/354/large/mateusz-kamela-highresscreenshot00077.jpg?1606994832);
+    background-size: cover;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center; 
+}
+
+#screen:after{
+    content:"";
+    position: absolute;
+    background-size: contain;
+    height: inherit;
+    width: inherit;
+    background-image: url(gallery/ui/screenTop.png);
+    background-size: 100% 100%;
+    z-index: 0
+}
+
+#screen:before{
+    content:"";
+    position: absolute;
+    background-size: contain;
+    height: inherit;
+    width: inherit;
+    background-image: var(--screenEffect);
+    background-size: 100% 100%;
+    z-index: 0
+}
+
+
+/* monster stats */
+#battlerDiv{
+    position: relative;
+    display: flex;
+    flex-direction: inherit;
+    align-items: inherit;
+    justify-content: inherit;
+}
+
+
+.monsterHealthBar{
+    position: absolute;
+    background-color:rgba(70, 100, 100, 0.4);
+    border-style: solid;
+    border-color: rgb(200, 200, 200);
+    width: 15vw;
+    height: 2vh;
+    border-width: 1px;
+    border-top-width: 0.5vh;
+    border-bottom-width: 0.5vh;
+    top: 25vh;
+    display: inherit;
+    flex-direction: row;
+}
+
+#healthBarPC{
+    position: absolute;
+    background-color:rgba(70, 100, 100, 0.4);
+    border-style: solid;
+    border-color: rgb(200, 200, 200);
+    width: 15vw;
+    height: 2vh;
+    border-width: 1px;
+    border-top-width: 0.5vh;
+    border-bottom-width: 0.5vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.hpBitMob{
+    height:85%;
+    width:2%;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    background: linear-gradient(0deg, rgba(227,145,145,0.09567577030812324) 12%, rgba(255,63,63,1) 64%, rgba(199,43,13,0.6923144257703081) 98%);
+    padding: 0;
+    margin: 0;
+    transition: all 0.4s ease-in-out;
+}
+
+.hpBitPC{
+    height:85%;
+    width:2%;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    background: linear-gradient(0deg, rgba(227,145,145,0.09567577030812324) 12%, rgba(63,255,63,1) 64%, rgba(43,199,13,0.6923144257703081) 98%);
+    padding: 0;
+    margin: 0;
+    transition: all 0.4s ease-in-out;
+}
+
+#monsterBattler{
+    max-width: 25rem;
+    max-height: 25rem;
+    min-width: 12.5rem;
+    min-height: 12.5rem;
+    position: relative;
+    transition: all 0.6s 0.1s ease-in;
+    opacity: 1;
+    width: 0;
+    flex-shrink: 0;
+}
+
+
+#monsterStats{
+    background-image: url(gallery/UI/combatUI.png);
+    background-position-y: 2px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-style: solid;
+    display: flex;
+    flex-direction: row;
+    align-self: flex-end;
+    min-width: 50vh;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 6;
+    bottom: 60vh;
+    transition: transform 0.4s;
+    border-style: none;
+    color: rgba(15, 206, 107, 0.9); 
+}
+
+
+
+
+
+
+
+.screensGroup{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content:  space-between;
+    height: 100%;
+    Flex-grow: 1; 
+}
+
+
+#log{
+    border: 2px;
+    padding: 0.6rem 0.6rem 0 0.6rem;
+    border-color: grey;
+    border-style: solid;
+    background-color: rgba(32, 35, 35, 0.85);
+    background-image: url(gallery/UI/chatLogMax.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 18rem;
+    height: 18rem;
+    width: 100%;
+    min-width: 10rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    min-height: 5rem;
+    color: green;
+    transition: margin 0.4s 0.1s ease-in-out; 
+    scrollbar-color: rgb(0, 255, 64) rgb(7, 92, 11);    
+}
+
+#text {
+    color:rgb(0, 255, 64)
+}
+
+
+
+.PCstatus, #sideScreen{
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    border-radius: 5%;
+
+    width: 18rem;
+    border-style: solid;
+    border-color: grey;
+    margin: 0.3rem 0;
+    background-color: rgba(32, 35, 35, 0.85);
+}
+.PCstatus ul {
+    list-style-type: none;
+    padding: 0.3rem;
+    margin: 0 0.9rem;
+    text-align: left;
+}
+.PCstatus {
+    bottom: 0;
+    height: 20rem;
+}
+
+#inventoryBlock{
+    grid-column: 15;
+    position: relative;
+    background-image: url(gallery/UI/bagBG.png);
+    background-size: cover;
+    overflow-y:visible;
+    overflow-x: hidden;
+    width: 18rem;
+    height: 6rem;
+    z-index: 1;
+    transition: height 0.4s 0.1s ease-in-out;
+}
+
+#inventoryContainer{
+    position: fixed;
+
+}
+
+/* #stickyGearSlots{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 25vh;
+    min-height: 40vh;
+    width:25vh;
+    left: 42vh;
+    bottom:-25vh;
+    transition: transform 0.8s ease-in
+}
+#stickyGearSlots:before{
+    background-image: url("gallery/UI/equipHud.png");
+    background-repeat: no-repeat;
+    content: "";
+    min-width: 25vh;
+    min-height: 40vh;
+    width:25vh;
+    height:60vh;
+    position: fixed;  
+}
+
+#gearContainer{
+    position:relative;
+    bottom: -10.5vh;
+    right: 2vh;
+    transition: all 0.3s linear;
+} */
+
+
+#beltUI {
+    position: relative;
+    top: 1rem;
+    width: 150%;
+    max-height: 130%;
+    margin-top: -10%;
+    transition: right 0.3s ease-in-out;
+}
+
+#bagOpener{
+    margin-top: -16%;
+    position: relative;
+    left: 30%;
+
+}
+
+#itemPopIcon {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    right: 15rem;
+    top: -5rem;
+    transition: all 0.46s ease-in-out;
+}
+
+#gearPopIcon {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    right: -15rem;
+    top: 2rem;
+    transition: all 0.46s ease-in-out;
+}
+
+
+
+/*===========RADIO SYSTEM=========*/
+
+#logContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+    margin: 0.6rem 0 0.1rem 0;
+    grid-column: 65/100;
+    grid-row: 1;
+}
+
+#statusSide{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    grid-column: 65/100;
+    grid-row: 38/60;
+    margin: 0;
+    width: 100%;
+    height: 115%;
+    background-image: url(gallery/UI/uiPrimaryMedium.png);
+    background-size: 100% 100%;
+}
+
+#radioHUD{
+    position: fixed;
+    left: 4rem;
+    bottom: 0;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 5%;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(173, 173, 173);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: url(gallery/UI/uiSecondaryHalf.png);
+    justify-content: center;
+    margin: 5px;
+    background-color: rgba(70, 100, 100, 0.9);
+    max-width: 305px;
+    max-height: 90px;
+    transition: all 0.4s ease-in;
+    /* 304 by 90~ */
+}
+
+#radioHUD::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--radionColorM); /* Tint color */
+    mix-blend-mode: multiply; /* Blend mode to apply the tint */
+    pointer-events: none; /* Ensure it doesn't interfere with interactions */
+}
+
+/* title of song*/
+#radioHUD span {
+    order: -1;
+    margin: 12px;
+    color: rgb(225, 220, 220);
+
+}
+
+/* Buttons for radio */
+
+.radioHudButton{
+    background-color: rgba(255, 255, 255, 0.0);
+    font-size: 0;
+    border: none; 
+    background-repeat: no-repeat;
+    background-size: 40px ;
+    width: 50px;
+    margin-bottom: 15px;
+    transition: 0.1s linear;
+}
+
+#buttonBack{
+    background-image: url(gallery/UI/uiRadioBack.png);
+    background-position: left;
+}
+#buttonBack:active{
+    background-image: url(gallery/UI/uiRadioBack.png);
+}
+#buttonPausePlay{
+    width: 70px;
+    background-image: url(gallery/UI/uiRadioPlay.png);
+    background-size: contain;
+    background-position: center;
+}
+#buttonPausePlay:active{
+    background-image: url(gallery/UI/uiRadioPlay.png);
+}
+#buttonForward{
+    background-image: url(gallery/UI/uiRadioForward.png);
+    background-position: right;
+}
+#buttonForward:active{
+    background-image: url(gallery/UI/uiRadioForward.png);
+}
+
+#logBtnContainer{
+    display: flex;
+    flex-direction: column;
+    align-content: start;
+    justify-content: start;
+    height: 7.5rem;
+    margin-top: 0.6rem;
+}
+
+.btnSmallLog{
+/*     position: absolute; 
+    top: 32rem; 
+    left: 18.6rem; */
+    width: 2.2rem;
+    height: 2.2rem;
+    left: -2.7rem; 
+    margin-right: -5rem;
+    border: solid black 2.5px;
+    border-radius: 0.3rem;
+    background: radial-gradient(circle, rgba(176,176,176,0.958420868347339) 50%, rgba(168,168,168,0.9500175070028011) 73%, rgba(144,144,144,0.6082808123249299) 96%);
+    background-size: cover;
+}
+
+#logZoomIn:after{
+    content: " ";
+    top: 0.1rem;
+    right: 0.1rem;
+    width: 1.7rem;
+    height: 1.7rem;
+    background-image: url(gallery/UI/plusUI.png);
+    background-size: contain;
+    box-sizing: border-box;
+    position: absolute;
+}
+
+#logZoomOut:after{
+    content: " ";
+    top: 0.1rem;
+    right: 0.1rem;
+    width: 1.7rem;
+    height: 1.7rem;
+    background-image: url(gallery/UI/minusUI.png);
+    background-size: contain;
+    box-sizing: border-box;
+    position: absolute;
+}
+
+#logClear:after{
+    content: " ";
+    top: 0.1rem;
+    right: 0.1rem;
+    width: 1.7rem;
+    height: 1.7rem;
+    background-image: url(gallery/UI/clearIcon.png);
+    background-size: contain;
+    box-sizing: border-box;
+    position: absolute;
+}
+
+
+/*=================BUTTONS AND ICONS================*/
+
+
+
+#radionIcon {
+    background-image: url(gallery/radiongif.gif);
+    max-width: 30px;
+    max-height: 30px;
+    background-size: 30px;
+    width: 30px;
+    height: 30px;
+    margin: 5px 5px;
+}
+
+#upBtn:after{
+    content: " ";
+    width: 4vh;
+    height: 4vh;
+    background-image: url(gallery/UI/UIArrowUp.png);
+    background-size: contain;
+    box-sizing: border-box;
+    position: absolute;
+}
+
+#downBtn:after{
+    content: " ";
+    width: 4vh;
+    height: 4vh;
+    background-image: url(gallery/UI/UIArrowDown.png);
+    background-size: contain;
+    box-sizing: border-box;
+    position: absolute;
+}
+
+#rightBtn:after{
+    content: " ";
+    width: 4vh;
+    height: 4vh;
+    background-image: url(gallery/UI/UIArrowRight.png);
+    background-size: contain;
+    box-sizing: border-box;
+    position: absolute;
+}
+
+#leftBtn:after{
+    content: " ";
+    width: 4vh;
+    height: 4vh;
+    background-image: url(gallery/UI/UIArrowLeft.png);
+    background-size: contain;
+    box-sizing: border-box;
+    position: absolute;
+}
+
+
+
+
+/* statgroup */
+.statIcon {
+    width: 25px; 
+    height: 25px; 
+    padding: 0;
+    vertical-align: middle;
+    margin: 2px;
+}
+
+#healthIcon {
+    background-image: url(gallery/UI/inventory.png);
+    background-position: 0px -50px;
+}
+#manaIcon {
+    background-image: url(gallery/UI/inventory.png);
+    background-position: -25px -50px;
+}
+#ammoIcon {
+    background-image: url(gallery/UI/inventory.png);
+    background-position: -50px -50px;
+}
+#experienceIcon {
+    background-image: url(gallery/UI/inventory.png);
+    background-position: -75px -50px;
+}
+#radiationIcon {
+    background-image: url(gallery/UI/inventory.png);
+    background-position: -200px -50px;
+}
+#hungerIcon {
+    background-image: url(gallery/UI/inventory.png);
+    background-position: -125px -50px;
+}
+#moneyIcon {
+    background-image: url(gallery/UI/inventory.png);
+    background-position: -100px -50px;
+}
+
+.meleeImg{
+    width: 50px; 
+    height: 50px; 
+    background-image: url(gallery/items/empty.png);
+}
+
+.gunImg{
+    width: 50px; 
+    height: 50px; 
+    background-image: url(gallery/items/empty.png);
+}
+
+.helmetImg{
+    width: 50px; 
+    height: 50px; 
+    background-image: url(gallery/items/emptyHelmet.png);
+}
+
+.bodyImg{
+    width: 50px; 
+    height: 50px; 
+    background-image: url(gallery/items/emptyBody.png);
+}
+
+.artiImg{
+    width: 50px; 
+    height: 50px; 
+    background-image: url(gallery/items/emptyArti.png);
+}
+
+.toolImg{
+    width: 50px; 
+    height: 50px; 
+    background-image: url(gallery/items/emptyTool.png);
+}
+
+.borderBottom {
+    margin: 15px 0 10px 0;
+    border-style: solid;
+    border-color: rgb(173, 173, 173);
+    border-bottom: 1px;
+
+
+
+}
+
+button {
+    width: 12vh;
+    height: 4.5vh; 
+    background: radial-gradient(circle, rgba(176,176,176,0.958420868347339) 50%, rgba(168,168,168,0.9500175070028011) 73%, rgba(144,144,144,0.6082808123249299) 96%);
+    position: relative;
+    vertical-align: middle;
+    border-color: rgb(55, 55, 55);
+    margin: auto 6px; 
+    padding: 0;
+    font-family: "Orbitron", sans-serif;
+    color: rgba(9, 44, 26, 0.9); 
+    font-optical-sizing: auto;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+button:hover{
+    transform: scale(120%);
+}
+
+li {
+    display: flex;
+}
+
+#slimeBattler {
+    content: url(https://cdna.artstation.com/p/assets/images/images/015/912/400/original/nicholas-taggart-slime-skul1l.gif?1550147732);
+    max-width: 200px;
+    max-height: 200px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+
+} /*REMOVE⚠️*/
+
+#nixieClock{
+    position: fixed;
+    background-color:rgba(70, 100, 100, 0.4);
+    border-style: solid;
+    border-color: rgb(0, 255, 64);
+    width: 15rem;
+    height: 10rem;
+    top: 1rem;
+    left: 4%;
+    display: flex;
+
+}
+
+.nixieDigit{
+
+}
+
+
+.itemContainer {
+    display: flex;
+    align-content: center;
+    transition: opacity 0.3s linear;
+}
+
+.sideButton{
+    width: 5vh;
+    height: 5vh;
+    margin-top: 0.7vh;
+    margin-bottom: 0.7vh;
+    border-width: 0.4vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle, rgba(255,255,255,0.6643032212885154) 0%, rgba(122,122,122,1) 92%, rgba(0,0,0,1) 100%);
+    transition: transform 0.14s linear;
+}
+
+#musicShelf:after{
+    content: " ";
+    width: 4vh;
+    height: 4vh;
+    background-image: url("gallery/UI/UInote.png");
+    background-size: contain;
+    box-sizing: border-box;
+    position: absolute;
+}
+
+#statusShelf:after{
+    content: " ";
+    width: 4vh;
+    height: 4vh;
+    background-image: url("gallery/UI/UIatom.png");
+    background-size: contain;
+    box-sizing: border-box;
+    position: absolute;
+}
+
+#hamburgerShelf:after{
+    content: " ";
+    width: 4vh;
+    height: 4vh;
+    background-image: url("gallery/UI/UIhamburger.png");
+    background-size: contain;
+    box-sizing: border-box;
+    position: absolute;
+}
+
+#mapShelf:after{
+    content: " ";
+    width: 4vh;
+    height: 4vh;
+    background-image: url("gallery/UI/UImap.png");
+    background-size: contain;
+    box-sizing: border-box;
+    position: absolute;
+}
+
+#generalShelf:after{
+    content: " ";
+    width: 4vh;
+    height: 4vh;
+    background-image: url("gallery/UI/UIbody.png");
+    background-size: contain;
+    box-sizing: border-box;
+    position: absolute;
+}
+
+#settingsShelf:after{
+    content: " ";
+    width: 4vh;
+    height: 4vh;
+    background-image: url("gallery/UI/UIcog.png");
+    background-size: contain;
+    box-sizing: border-box;
+    position: absolute;
+    animation: rotate360 3s linear infinite;
+}
+
+@keyframes rotate360 {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+/* sticky/fixed UI */
+
+
+#stickyPortrait{
+    display: flex;
+    position: fixed;
+    background-image: url("gallery/UI/strelokPortrait.gif");
+    width: 150px;
+    height: 205px;
+    background-color: rgba(255, 255, 255, 0.0);
+    bottom: -1.5rem;
+    left: 42rem;
+    transition: transform 0.7s 0.1s ease-in-out;
+    /*align-items: center;
+    justify-content: center; */
+}
+#stickyPortrait:after{
+    background-image: url("gallery/UI/walkie1.png");
+    content: "";
+    width: 150px;
+    height: 205px;
+    position: absolute;
+}
+
+
+#stickyGearSlots{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 25vh;
+    min-height: 40vh;
+    width:25vh;
+    grid-column: 5;
+    top: -8%;
+    right: -60%;
+    transition: transform 0.8s ease-in
+}
+#stickyGearSlots:before{
+    background-image: url("gallery/UI/equipHud.png");
+    background-repeat: no-repeat;
+    content: "";
+    min-width: 25vh;
+    min-height: 40vh;
+    width:25vh;
+    height:60vh;
+    position: fixed;  
+}
+
+#gearContainer{
+    position:relative;
+    bottom: -10.5vh;
+    right: 2vh;
+    transition: all 0.3s linear;
+}
+
+#gearOpenBtn{
+    position: relative;
+    top: 8vh;
+}
+
+#stickyHud{
+    grid-column: 11;
+    display: flex;
+    position: relative;
+    min-width: 663px;
+    min-height: 154px;
+    width: 60vh;
+    height: 12vh;
+    background-color: rgba(255, 255, 255, 0.0);
+    align-items: center;
+    justify-content: center;
+    justify-self: center;
+    align-self: flex-start
+}
+
+#stickyHud:before{
+    background-image: url("gallery/UI/hudtest.png");
+    content: "";
+    min-width: 663px;
+    min-height: 154px;
+    position: absolute;
+
+}
+
+#buttonsMain{
+    position: relative; 
+    display: flex;
+    flex-direction: row;
+    bottom: 2vh;
+}
+
+#buttonsMain > button{
+    width: 13vh;
+    height: 5vh;  
+}
+
+#pdaMini{
+    position: relative;
+    background-image: url(gallery/UI/pdaTranspVert.png);
+    background-size: contain;
+    width: 20rem;
+    height: 20rem;
+    left: 214%;
+    bottom: 60%;
+    display: grid;
+    padding: 1rem;
+    grid-template-columns: repeat(2, 45%);
+    grid-template-rows: repeat(10, 10%);
+}
+
+#ammoCounter{
+    height: 805%;
+    width: 100%;
+    position: relative;
+    grid-column: 2;
+    grid-row:1;
+    overflow-y: visible;
+    overflow-x: visible;
+}
+
+#ammoCounterTxt{
+    grid-column: 1;
+    grid-row: 1 /span 2;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin: 1.2rem 0 0 1rem;
+    padding: 0.2rem;
+    border: rgb(0, 255, 64) solid 1px;
+}
+
+#equippedGunTxt{
+    grid-column: 1;
+    grid-row: 3;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#ammoTypeTxt{
+    grid-column: 1;
+    grid-row: 4;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#magIntContPistol{
+    position: absolute;
+    top: 10%;
+}
+
+.magImgPistol{
+    position: absolute;
+    width: 100%;
+    height: 110%;
+    margin-top: 10%;
+}
+
+.ammoImgPistol{
+    display: none;
+    opacity: 0;
+    position: relative;
+    width: 50%;
+    top: 10%;
+    left: 21%;   
+}
+
+#ammoButtons{
+    grid-column: 1;
+    grid-row: 6 /span 2;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: row;
+}
+
+#ammoRldBtn{
+    background-image: url(gallery/UI/reloadIcon.png);
+    background-size: contain;
+    width: 3rem;
+    height: 3rem;
+    padding: 5px;
+    margin: 5px;
+
+}
+
+#ammoRldBtnSpin{
+    background-image: url(gallery/UI/reloadSpin.png);
+    background-size: contain;
+    border: none;
+    width: 3rem;
+    height: 3rem;
+    background-color: rgba(0,0,0,0);
+    animation: rotate360 0.7s ease-in-out infinite;
+}
+
+#ammoTypeBtn{
+    background-image: url(gallery/UI/singleBullet.png);
+    background-size: contain;
+    width: 3rem;
+    height: 3rem;
+    padding: 5px;
+    margin: 5px;
+
+}
+
+#plusRad{
+    margin-right: -3rem;
+    position: relative;
+    display: none;
+    grid-column: 2;
+    grid-row: 8;
+    width: 30%;
+    height: 120%;
+}
+
+img {
+    position: relative;
+}
+
+/* Transitioners */
+.transitTopBot {
+    opacity: 1;
+    display: flex;
+    position: relative;
+    transform: translate(0, 80vh);
+}
+
+#alert{
+    position: relative;
+    border-radius: 6%;
+    background-color:rgba(228, 187, 8, 0.9);
+    border-color:black;
+    border-style: solid;
+    min-width: 30vh;
+    max-width: 400px;
+    min-height: 5vh;
+    top: 20vh;
+    left: 20vh;
+    display: flex;
+    justify-content: center;
+    transition: all 0.3s linear;
+    opacity: 0;
+    z-indeX: 5
+}
+
+#alertText{
+    position: relative;
+    padding-left: 10px;
+    padding-right: 3vh;
+    transition: all 0.3s;
+}
+
+#alertDis{
+    position: absolute;
+    width: 2.5vh;
+    height: 2.5vh;
+    margin-top: 0.4vh;
+    right: 0vh;
+}
+
+/* ===========TOOLTIPS===========*/
+.tooltip {
+    position: relative;
+    display: flex;
+  }
+.tooltip .tooltiptext {
+    visibility: hidden;
+    max-width: 35vh;
+    min-width: 28vh;
+    max-height: 50vh;
+    min-height: 5vh;
+    background-color: rgba(54, 71, 62, 0.9);
+    color: white;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 5;
+    bottom: 125%;
+    left: 0%;
+    margin-left: -60px;
+  } 
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 40%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #2c332e transparent transparent transparent;
+  }
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  #TEST{
+    position: absolute;
+    width: 100vh;
+    height: 100vh;
+    background-color: red;
+  }
+
+
+
+
+/* MOBILE TEST */
+/* 
+@media screen and (max-width: 1080px) and (orientation: portrait) {
+
+    body{
+        display: flex;
+        background-color: black;
+        align-items: center;
+        flex-direction: column;
+        }
+
+    .screensGroup #log{
+        border: 1px;
+        margin: 7px;
+        border-color: grey;
+        border-style: solid;
+        background-color: rgba(70, 100, 100, 0.9);
+        max-width: 2080px;
+        min-height: 30vh; 
+        height: 50%;
+        width: 80vh;
+        overflow-y: scroll;        
+    }
+
+
+
+    #stickyHud{
+        display: flex;
+        align-self: center;
+        position: fixed;
+        width: 60vh;
+        height: 12vh;
+        bottom: 0px;
+        /*align-items: center;
+        justify-content: center; 
+    }
+} */
+
+
+
+

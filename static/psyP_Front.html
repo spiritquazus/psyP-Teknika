@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Radion RPG</title>
+        <!--Title on top!-->
+        <meta charset="UTF-8">
+        <link href="psyP_CSS.css" rel="stylesheet">
+        <!--Font-->
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+        
+
+    </head>
+
+    <body>
+        <nav id="floatPointGroup"></nav> <!--floating point windows group-->
+            <div id="settingsWindow" class="floatPoint">
+                <div id="settings1" class="settingsCol orbitPlsClear">Visuals
+                    <div>Radiation Effects</div>
+                    <div class="settingCat"></div>
+                    <div>Wound Effects</div>
+                    <div class="settingCat"></div>
+                    <div>Combat Speed</div>
+                    <div class="settingCat"></div>
+                    <div class="settingCat">Background Image
+                        <button class="sideButton" id="themeImgPrev"></button>
+                        <button class="sideButton" id="themeImgSelect"></button>
+                        <button class="sideButton" id="themeImgNext"></button>
+                        <div id="themeImgPreview"></div>
+                    </div>
+                    <div class="settingCat">HUD Customization
+                        <div>Font Color</div>
+                        <div></div>
+                    </div>
+                </div>
+
+                <div id="settings2" class="settingsCol orbitPlsClear">Sound
+                    <div>Master Sound</div>
+                    <div class="settingCat"></div>
+                    <div>Music</div>
+                    <div class="settingCat"></div>
+                    <div>Radio</div>
+                    <div class="settingCat"></div>
+                    <div>Effects</div>
+                    <div class="settingCat"></div>
+                    <div>Switch radio off when entering combat</div>
+                    <div class="settingCat"></div>
+                </div>
+                <div id="settings3" class="settingsCol orbitPlsClear">Accessibility</div>
+            </div>
+
+
+
+            <div id="coinFlipWindow" class="floatPoint">
+                <div id="coinFlipTxt" class="orbitPls">Heads or Tails?</div>
+                <div id="coinContain">
+                    <div id="heads"><img id="dolgCoinFlip" src="gallery/UI/dolg.png" alt="heads"><button id="headsBtn">Heads</button></div>
+                    <div id="tails"><img id="vodyaCoinFlip" src="gallery/UI/vodya.png" alt="tails"><button id="tailsBtn">Tails</button></div>
+                </div>
+            </div>
+
+            <div id="pda" class="floatPoint">
+                <div id="pdaScreen">
+                    <div id="pdaNavBar">
+                        <button id="pdaBarStatus" class="pdaNavBtn borderRadion1 orbitPlsSmol">Status</button>
+                        <button id="pdaBarInfo" class="pdaNavBtn borderRadion1 orbitPlsSmol">Info</button>
+                        <button id="pdaBarMap" class="pdaNavBtn borderRadion1 orbitPlsSmol">Map</button>
+                        <button id="pdaBarTasks" class="pdaNavBtn borderRadion1 orbitPlsSmol">Tasks</button>
+                        <button id="pdaBarMsg" class="pdaNavBtn borderRadion1 orbitPlsSmol">Messages</button>
+                        <button id="pdaBarExit" class="pdaNavBtn borderRadion1 orbitPlsSmol">X</button>
+                    </div>
+                    <div id="pdaMsgTab" class="flexToggle"></div>
+                    <div id="pdaQuestTab" class="flexToggle"></div>
+                    <div id="pdaMapTab" class="flexToggle">
+                        <div id="mapAndLog">
+                            <div id="mapImgGrid">
+                                <div id="mapVis">
+                                    <div class="mapTest"></div>
+                                    <div id="PCpawn"></div>                
+                                </div>
+                            </div>
+                            <div id="textLogDupli">
+                                
+                            </div>
+                        </div>
+                        <div id="mapSideBar">
+                            <div id="mapSBarTop">
+                                <div id="directionalBtn">
+                                    <div class="direcCenter flexCenter"><button class="sideButton" id="upBtn"></button></div>
+                                    <div class="direcShare flexEnds"><button class="sideButton" id="leftBtn"></button><button class="sideButton" id="rightBtn"></button></div>
+                                    <div class="direcCenter flexCenter"><button class="sideButton" id="downBtn"></button></div>
+                                </div>
+                                <div id="mapDayNight">
+                                    <div id="dayNightWidget"></div>
+                                    <div id="gameTime" class="orbitPlsSmol"></div>
+                                </div>
+                            </div>
+                            <div id="exploreChoice">
+                                <div id="exploreChoiceLOGO" class="orbitPls"><img src="gallery/UI/nuclearBip.png"/>  Exploration Menu<img/></div>
+                                <button id="mapEnterButton" class="exploreBtnBars pdaNavBtn borderRadion1 orbitPlsSmol">Enter</button>
+                                <button id="mapInfoButton" class="exploreBtnBars pdaNavBtn borderRadion1 orbitPlsSmol">Information</button>
+                                <button id="" class="exploreBtnBars pdaNavBtn borderRadion1 orbitPlsSmol">Camp</button>
+                                <button id="" class="exploreBtnBars pdaNavBtn borderRadion1 orbitPlsSmol">Crafting</button>
+                                <button id="" class="exploreBtnBars pdaNavBtn borderRadion1 orbitPlsSmol">Exit</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="pdaStatusTab" class="flexToggle">
+                            <div id="skeletonCosme">
+                                <div id="skeletonPNG" alt="skeleton"></div>
+                                <div id="musclePNG" alt="anatomy"></div>`
+                            </div>
+                            <div id="statusClone">
+                                <!--Innerhtml copy from status-->
+                                <div id="heartMonitor"></div>
+                            </div>
+                            <div id="statusSubContainer" class="borderRadion1"> <!--⚙️⚙️⚙️WIP-->
+                                <div id="PCprofile" class="borderRadion1 orbitPls flexToggle">
+                                    <p id="name" class="">Sasha - </p>
+                                    <p id="nickname" class="">Headhunter - </p>
+                                    <p id="PClevelDisplay" class="">Level 5</p>
+                                    <p id="rank" class="">Rookie</p>
+                                </div>
+                                <div id="profileCosmetic">
+                                    <div id="profilePic">
+                                        <img src="./gallery/UI/inventory.png" alt="profilePicture">
+                                    </div>
+                                    <div id="badgeFaction" class="borderRadion1">
+                                        <img src="gallery/UI/neutral.png">
+                                        <p class="orbitPlsSmol">Neutral Stalkers</p>
+                                    </div>
+                                </div>
+                                <div id="PCstatusTexts">
+                                    <ul class="orbitPlsSmol">
+                                        <li>Mutant Kills: <p></p></li>
+                                        <li>Pseudo-human kills: <p></p></li>
+                                        <li>Stalker Kills: <p></p></li>
+                                        <li>Artifacts Found: <p></p></li>
+                                        <li>Tasks Completed: <p></p></li>
+                                    </ul>
+                                    <ul></ul>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        <div id="bg"> <!--the entire HUD-->
+
+            <div id="sideBar">
+                <button class="sideButton" id="musicShelf"></button>
+                <button class="sideButton" id="mapShelf"></button>
+                <button class="sideButton" id="statusShelf"></button>
+                <button class="sideButton" id="generalShelf"></button>
+                <button class="sideButton" id="settingsShelf"></button>
+                <button class="sideButton" id="hamburgerShelf"></button>
+            </div>
+
+            <div id="screenTitle"> <div id="radionIcon"></div>Radion RPG       <div id="radionIcon"></div></div>
+            <div class="screensGroup" >
+                
+                <!-- <div class="grid60-40"></div> -->
+                <div class="gridWrapper">
+                    <nav id="screen">
+                        <nav id="screenBackground"><!--This is the image/cinematics-->                  
+                            <div id="eventScreen"></div>                       
+                            <div id="alert">   
+                                <p id="alertText" class="orbitPls"></p>
+                                <button id="alertDis">X</button>
+                            </div>    
+                            <div id="battleStatsPC">
+                                <div id="geigerCounter">
+                                    <div id="radiationRatePC">
+                                        <p>Radiation:</p>
+                                        <p></p>
+                                    </div>
+                                </div>
+                                <div id="healthBarPC">   
+                                <div id="psiPC"></div>
+                                <div id="sanityPC"></div>
+                                <div id="heartMonitorBattle"></div>     
+                                </div>
+                            </div>   
+                            <div id="battlerCont">
+                                <div id="mobParent0">
+                                    <img class="monsterBattler" src="gallery/null.png" id="monsterBattler0">
+                                    <div class="monsterHealthBar" id="healthBarMob0">                               
+                                    </div>
+                                    <div class="debuffMobContainer"></div>
+                                    <div class="monsterStats">
+                                        <p></p>Name: <span id="monsterName"></span>
+                                        <p>Health: </p><span id="monsterHealth"></span>
+                                        <p>Level: </p><span id="monsterLevel"></span>
+                                        <p>Damage: </p><span id="monsterAttackMin"></span><span>~</span><span id="monsterAttackMax"></span>
+                                        <p>Skills: </p><span id="monsterSkills"></span>
+                                <div>
+                                <div id="mobParent1">
+                                    <img class="monsterBattler" src="gallery/null.png">
+                                    <div class="monsterHealthBar" id="healthBarMob1">                               
+                                    </div>
+                                    <div class="debuffMobContainer"></div>
+                                    <div class="monsterStats">
+                                        <p></p>Name: <span id="monsterName"></span>
+                                        <p>Health: </p><span id="monsterHealth"></span>
+                                        <p>Level: </p><span id="monsterLevel"></span>
+                                        <p>Damage: </p><span id="monsterAttackMin"></span><span>~</span><span id="monsterAttackMax"></span>
+                                        <p>Skills: </p><span id="monsterSkills"></span>
+                                <div>
+                                <div id="mobParent2">
+                                    <img class="monsterBattler" src="gallery/null.png">
+                                    <div class="monsterHealthBar">                               
+                                    </div>
+                                    <div class="debuffMobContainer" id="healthBarMob2"></div>
+                                    <div class="monsterStats">
+                                        <p></p>Name: <span id="monsterName"></span>
+                                        <p>Health: </p><span id="monsterHealth"></span>
+                                        <p>Level: </p><span id="monsterLevel"></span>
+                                        <p>Damage: </p><span id="monsterAttackMin"></span><span>~</span><span id="monsterAttackMax"></span>
+                                        <p>Skills: </p><span id="monsterSkills"></span>
+                                <div>
+                            </div>             
+                        </nav>
+                    </nav>
+                    <div id="logContainer">
+                        <div id="logBtnContainer">
+                            <button id="logZoomIn" class="btnSmallLog"></button>
+                            <button id="logZoomOut" class="btnSmallLog"></button>
+                            <button id="logClear" class="btnSmallLog"></button>
+                        </div>
+                        <!--Chat log-->
+                        <nav id="log">
+                            <div id="text"><span>Welcome to Radion RPG!</span></div>
+                        </nav>
+                    </div>
+                    <nav id="statusSide">
+                        <div id="additionalStuff"></div>
+                        <ul class="h50">
+                            <legend class="orbitPls">Status</legend>
+                            <li class="orbitPlsSmol"><img class="statIcon" id="healthIcon"><button class="stat" id="healthText">Health</button> <span id="PChealth">100</span> <span>/</span> <span id="PCmaxHealth">100</span></li>
+                            <li class="orbitPlsSmol"><img class="statIcon" id="sleepIcon"><button class="stat" id="sleepText"> Sleep</button> <span id="sleep">0</span>/<span id="PCmaxSleep">100</span></li>
+                            <li class="orbitPlsSmol"><img class="statIcon" id="radiationIcon"><button class="stat" id="radiationText"> Radiation</button> <span id="Radiation">100</span></li>
+                            <li class="orbitPlsSmol"><img class="statIcon" id="hungerIcon"><button class="stat" id="hungerText"> Hunger</button> <span id="hunger">0</span>/<span id="PCmaxHunger">100</span></li>
+                        </ul>  
+                        <ul class="h50">
+                            <legend class="orbitPls">Resources</legend>
+                            <li class="orbitPlsSmol"><img class="statIcon" id="moneyIcon"><button class="stat" id="moneyText"> Money</button> <span id="money">100</span></li>
+                            <li class="orbitPlsSmol"><img class="statIcon" id="experienceIcon"><button class="stat" id="xpText"> Experience</button> <span id="experience">20</span>/<span id="PCmaxExperience">100</span></li>
+                            <li class="orbitPlsSmol"><img class="statIcon" id="manaIcon"><button class="stat" id="manaText"> Radion</button> <span id="PCmana">50</span> <span>/</span> <span id="PCmaxMana">50</span></li>
+                            <li class="orbitPlsSmol"><img class="statIcon" id="ammoIcon"><button class="stat" id="ammoText"> Ammo</button> <span id="Ammo">5</span></li>
+                        </ul> 
+                
+                    </nav>
+                </div>
+
+
+        
+                <!--Bottom Bar Setup-->
+
+
+
+                <div id="stickyPortrait"></div>
+
+
+                <div id="bottomBarCont" class="">
+                    <!--Radio-->
+                    <nav id="radioHUD"> 
+                        <span id="whatsPlayingRadio">Radio System</span>
+                        <div>
+                            <button class="radioHudButton" id="buttonBack">N/A</button>
+                            <button class="radioHudButton" id="buttonPausePlay">Play</button>
+                            <button class="radioHudButton" id="buttonForward">N/A</button>
+                        </div>
+                    </nav>
+                    <div id="stickyGearSlots">
+                        <img id="gearPopIcon" src="gallery/null.png">
+                        <button id="gearOpenBtn">Equipment</button>
+                        <ul id="gearContainer">       
+                            <li id="helmetSlot"><img class="helmetImg"><button class="helmetButtonElement" id="empty">Empty</button></li></li>
+                            <li id="bodySlot"><img class="bodyImg"><button class="bodyButtonElement" id="empty">Empty</button></li></li>
+                            <li id="meleeSlot"><img class="meleeImg"><button class="meleeButtonElement" id="empty">Empty</button></li>
+                            <li id="gunSlot"><img class="gunImg"><button class="gunButtonElement" id="empty">Empty</button></li>
+                            <li id="artiSlot"><img class="artiImg"><button class="artiButtonElement" id="empty">Empty</button></li></li>
+                            <li id="toolSlot"><img class="toolImg"><button class="toolButtonElement" id="empty">Empty</button></li></li>           
+                        </ul>
+                
+                    </div>
+                    <div id="stickyHud">
+                        <nav id="buttonsMain">
+                            <button id="button1">Introduction</button>
+                            <button id="button2">Start your adventure</button>
+                            <button id="button3">N/A</button>
+                            <button id="button4">N/A</button>
+                        </nav> 
+                    </div>   
+                    <nav class="PCstatus" id="inventoryBlock">
+                        <img id="beltUI" src="gallery/UI/beltui2.png">
+                        <button id="bagOpener">Open Bag</button>
+                        <ul id="inventoryContainer">
+                        <img id="itemPopIcon" src="gallery/null.png">  
+                        </ul>             
+                    </nav> 
+                    <div id="pdaMini">
+                        <div id="ammoCounterTxt">
+                                <p class="orbitPls">5</p>
+                                <p class="orbitPls">/</p>
+                                <p class="orbitPls">5</p>
+                        </div>
+                        <div id="ammoTypeTxt" class="orbitPlsSmol">
+                            <p>Caliber:</p>
+                            <p>9mm</p>
+                        </div>
+                        <div id="equippedGunTxt" class="orbitPlsSmol">
+                            <p>Mode:</p>
+                            <p>Single</p>
+                        </div>
+                        <div id="ammoButtons">
+                            <button id="ammoTypeBtn" class="pdaNavBtnSq borderRadion1"></button>
+                            <button id="ammoRldBtn" class="pdaNavBtnSq borderRadion1"></button>
+                        </div>
+                        <div id="ammoCounter">
+                            <img class="magImgPistol" src="gallery/UI/uiMagPistol.png"/>
+                            <div id="magIntContPistol"><!--max8-->
+                                <img class="ammoImgPistol transitTopBotFadeT1 flexToggle" src="gallery/UI/uiBulletPistol.png"/>
+                                <img class="ammoImgPistol transitTopBotFadeT2 flexToggle" src="gallery/UI/uiBulletPistol.png"/>
+                                <img class="ammoImgPistol transitTopBotFadeT3 flexToggle" src="gallery/UI/uiBulletPistol.png"/>
+                                <img class="ammoImgPistol transitTopBotFadeT4 flexToggle" src="gallery/UI/uiBulletPistol.png"/>
+                                <img class="ammoImgPistol transitTopBotFadeT5 flexToggle" src="gallery/UI/uiBulletPistol.png"/>
+                                <img class="ammoImgPistol transitTopBotFadeT6 flexToggle" src="gallery/UI/uiBulletPistol.png"/>
+                                <img class="ammoImgPistol transitTopBotFadeT7 flexToggle" src="gallery/UI/uiBulletPistol.png"/>
+                                <img class="ammoImgPistol transitTopBotFadeT8 flexToggle" src="gallery/UI/uiBulletPistol.png"/>
+                            </div>
+                            
+                        </div>
+                        <img id="plusRad" src="gallery/UI/plusUIrad.png"/>
+                    </div>
+                </div>   
+
+                <nav id="nixieClock">
+                    <div class="nixieDigit" id="nixie1"></div>
+                    <div class="nixieDigit" id="nixie2"></div>
+                    <div class="nixieDigit" id="nixie3"></div>
+                    <div class="nixieDigit" id="nixie4"></div>
+                </nav>  
+
+            </div>
+        </div>
+    </body>
+
+<!--     <div id="stickyGearSlots">
+        <img id="gearPopIcon" src="gallery/null.png">
+        <button id="gearOpenBtn">Equipment</button>
+        <ul id="gearContainer">       
+            <li id="helmetSlot"><img class="helmetImg"><button class="helmetButtonElement" id="empty">Empty</button></li></li>
+            <li id="bodySlot"><img class="bodyImg"><button class="bodyButtonElement" id="empty">Empty</button></li></li>
+            <li id="meleeSlot"><img class="meleeImg"><button class="meleeButtonElement" id="empty">Empty</button></li>
+            <li id="gunSlot"><img class="gunImg"><button class="gunButtonElement" id="empty">Empty</button></li>
+            <li id="artiSlot"><img class="artiImg"><button class="artiButtonElement" id="empty">Empty</button></li></li>
+            <li id="toolSlot"><img class="toolImg"><button class="toolButtonElement" id="empty">Empty</button></li></li>           
+        </ul>
+
+    </div> -->
+
+    <!--Gear + Portrait-->
+
+
+
+
+
+
+    <!--STICKY HUD-->
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+    <script src="./data/psyP_DOM.js"></script>
+    <script src="./data/psyP_Preload.js"></script>
+    <script src="./data/psyP_Decoupler.js"></script>
+    
+    <script src="./data/psyP_Items.js"></script>
+    <script src="./data/psyP_Health.js"></script>
+    <script src="./data/psyP_BuffSetup.js"></script>
+    <script src="./data/psyP_Events.js"></script>
+    <script src="./data/psyP_Radio.js"></script>
+    <script src="./data/psyP_Combat.js"></script>
+
+    <script src="psyP_Main.js" defer></script>
+
+</html>
