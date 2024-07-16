@@ -19,17 +19,25 @@ let table2 = {
 
 
 function fullHPBitSetUp(_mobNum){ //
-    let _healthTotem = healthBarPC
-    if (_mobNum != "PC"){
-        _healthTotem = document.getElementById("healthBarMob" + _mobNum)
-    } 
+    _healthTotem = _mobNum != "PC"?_healthTotem = document.getElementById("healthBarMob" + _mobNum):healthBarPC
     for (let i = 0; i < 50; i++) {
-        let _healthBit = document.createElement("div")
-        _healthBit.className = "hpBitMob"
+        const _healthBit = document.createElement("div")
+        _healthBit.className = _mobNum!="PC"?"hpBitMob":"hpBitPC"
         _healthTotem.appendChild(_healthBit)
     }
 } 
 
+function fullStatBitSetUp(_gStat){
+    const _stat = document.getElementById(_gStat)
+    for (let i = 0; i < 50; i++) {
+        const _statBit = document.createElement("div")
+        _statBit.className = _gStat=="psiPC"?"psiBitPC":"sanityBitPC"
+        _stat.appendChild(_statBit)
+    }
+}
+
+fullStatBitSetUp("psiPC")
+fullStatBitSetUp("sanityPC")
 
 //run example: function HPBitUpdt(currentLhealth, maxLhealth, _mobNum, reset)
 function HPBitUpdt(_mobNum, _purpose){ 

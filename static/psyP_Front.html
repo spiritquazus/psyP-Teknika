@@ -164,27 +164,27 @@
                 <!-- <div class="grid60-40"></div> -->
                 <div class="gridWrapper">
                     <nav id="screen">
+                        <div id="battleStatsPC">
+                            <div id="geigerCounter">
+                                <div id="radiationRatePC">
+                                    <p>Radiation:</p>
+                                    <p></p>
+                                </div>
+                            </div>
+                            <div id="healthBarPC" class="statGauge"></div>   
+                            <div id="psiPC" class="statGauge"></div>
+                            <div id="sanityPC" class="statGauge"></div>
+                            <div id="heartMonitorBattle"></div>     
+                        </div> 
                         <nav id="screenBackground"><!--This is the image/cinematics-->                  
                             <div id="eventScreen"></div>                       
                             <div id="alert">   
                                 <p id="alertText" class="orbitPls"></p>
                                 <button id="alertDis">X</button>
                             </div>    
-                            <div id="battleStatsPC">
-                                <div id="geigerCounter">
-                                    <div id="radiationRatePC">
-                                        <p>Radiation:</p>
-                                        <p></p>
-                                    </div>
-                                </div>
-                                <div id="healthBarPC">   
-                                <div id="psiPC"></div>
-                                <div id="sanityPC"></div>
-                                <div id="heartMonitorBattle"></div>     
-                                </div>
-                            </div>   
+                              
                             <div id="battlerCont">
-                                <div id="mobParent0">
+                                <div id="mobParent0" class="battlerParent">
                                     <img class="monsterBattler" src="gallery/null.png" id="monsterBattler0">
                                     <div class="monsterHealthBar" id="healthBarMob0">                               
                                     </div>
@@ -196,7 +196,7 @@
                                         <p>Damage: </p><span id="monsterAttackMin"></span><span>~</span><span id="monsterAttackMax"></span>
                                         <p>Skills: </p><span id="monsterSkills"></span>
                                 <div>
-                                <div id="mobParent1">
+                                <div id="mobParent1" class="battlerParent">
                                     <img class="monsterBattler" src="gallery/null.png">
                                     <div class="monsterHealthBar" id="healthBarMob1">                               
                                     </div>
@@ -208,7 +208,7 @@
                                         <p>Damage: </p><span id="monsterAttackMin"></span><span>~</span><span id="monsterAttackMax"></span>
                                         <p>Skills: </p><span id="monsterSkills"></span>
                                 <div>
-                                <div id="mobParent2">
+                                <div id="mobParent2" class="battlerParent">
                                     <img class="monsterBattler" src="gallery/null.png">
                                     <div class="monsterHealthBar">                               
                                     </div>
@@ -267,7 +267,7 @@
                     <!--Radio-->
                     <nav id="radioHUD"> 
                         <span id="whatsPlayingRadio">Radio System</span>
-                        <div>
+                        <div id="radioUI">
                             <button class="radioHudButton" id="buttonBack">N/A</button>
                             <button class="radioHudButton" id="buttonPausePlay">Play</button>
                             <button class="radioHudButton" id="buttonForward">N/A</button>
